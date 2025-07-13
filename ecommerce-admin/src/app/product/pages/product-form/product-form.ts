@@ -8,7 +8,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   standalone: true,
@@ -77,11 +77,11 @@ export class ProductFormComponent {
 
     if (this.isEdit && this.productId) {
       this.http
-        .put(`http://localhost:3000/api/products/${this.productId}`, formData)
+        .put(`${environment.apiUrl}/products/${this.productId}`, formData)
         .subscribe(() => this.router.navigate(['/products']));
     } else {
       this.http
-        .post('http://localhost:3000/api/products', formData)
+        .post('${environment.apiUrl}/api/products', formData)
         .subscribe(() => this.router.navigate(['/products']));
     }
   }

@@ -14,6 +14,7 @@ import { environment } from '../../../../environments/environment';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  apiUrl = environment.apiUrl;
 
   constructor(private router: Router, private http: HttpClient) {}
 

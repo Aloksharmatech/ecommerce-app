@@ -1,14 +1,15 @@
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'products',
-    pathMatch: 'full', 
+    pathMatch: 'full',
   },
   {
     path: 'products',
     loadChildren: () =>
-      import('./product/product-module').then((m) => m.ProductModule),
+      import('./product/product-module').then((m) => m.default),
   },
 ];
